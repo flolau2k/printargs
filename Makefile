@@ -1,4 +1,4 @@
-NAME =		pipex
+NAME =		printargs
 
 CC =		cc
 CFLAGS =	-g -Wall -Wextra -Werror
@@ -7,11 +7,21 @@ LIBFT =		libft/libft.a
 
 FILES =		printargs.c
 
-all: $(LIBFT) printargs.c
+INSTALL_DIR = $(HOME)/.local/bin
+
+all: $(LIBFT) $(NAME)
 
 $(LIBFT):
 	@git submodule update --init --recursive --remote
 	@make -C $(@D)
 
-printargs: printargs.c
-	$(CC) $(CFLAGS) -o printenv printenv.c -Llibft -lft
+$(NAME): printargs.c
+	$(CC) $(CFLAGS) -o $(NAME) printargs.c -Llibft -lft
+
+install: all
+	@cp $(NAME) $(INSTALL_DIR)
+	@echo successfully installed $(NAME) to $(INSTALL_DIR)
+
+uninstall:
+	@rm -f $(INSTALL_DIR)/$(NAME)
+	@echo successfully uninstalled $(NAME) from $(INSTALL_DIR)
