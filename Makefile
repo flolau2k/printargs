@@ -12,7 +12,7 @@ INSTALL_DIR = $(HOME)/.local/bin
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	@git submodule update --init --recursive --remote
+	@git submodule update --init --recursive
 	@make -C $(@D)
 
 $(NAME): printargs.c
