@@ -1,7 +1,7 @@
 NAME =		printargs
 
 CC =		cc
-CFLAGS =	-g -Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra -Werror
 
 LIBFT =		libft/libft.a
 
