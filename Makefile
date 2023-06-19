@@ -18,6 +18,15 @@ $(LIBFT):
 $(NAME): printargs.c
 	$(CC) $(CFLAGS) -o $(NAME) printargs.c -Llibft -lft
 
+clean:
+	make -C libft clean
+
+fclean: clean
+	make -C libft fclean
+	/bin/rm -rf $(NAME)
+
+re:	fclean all
+
 install: all
 	@cp $(NAME) $(INSTALL_DIR)
 	@echo successfully installed $(NAME) to $(INSTALL_DIR)
